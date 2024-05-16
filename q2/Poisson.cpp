@@ -11,7 +11,7 @@ long double poisson(int lambda, int k) {
     return expl(-lambda) * powl(lambda, k) / tgamma(k + 1);
 }
 
-int main2(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     if (argc != 3) {
         std::cerr << "Error: Invalid number of arguments." << std::endl;
         exit(1);

@@ -1,24 +1,14 @@
-CC = g++
-CFLAGS = -g -Wall
+SUBDIRS := q1 q2 q3 q4 q5 q6
 
-TARGET = crash_program Poisson q3 
-SRCS = q1.cpp Poisson.cpp q3.cpp 
-LIB_SRCS = Poissonlib.cpp
+all: $(SUBDIRS)
 
-OBJS = $(SRCS:.cpp=.o)
-LIB_OBJS = $(LIB_SRCS:.cpp=.o)
-
-all: $(TARGET)
-
-
-$(TARGET): $(OBJS) libpoisson.so
-	$(CC) $(CFLAGS) -o $@ $(OBJS) -L. -lpoisson
-
-libpoisson.so: $(LIB_OBJS)
-	$(CC) -shared -o $@ $(LIB_OBJS)
-
-.cpp.o:
-	$(CC) $(CFLAGS) -c $< -o $@ -fPIC
+$(SUBDIRS):
+	$(MAKE) -C $@
 
 clean:
-	rm -f $(OBJS) $(LIB_OBJS) $(TARGET) libpoisson.so *.gcda *.gcno *.gcov codecoverage q5 add2PB
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir clean; \
+	done
+
+.PHONY: $(SUBDIRS) clean
+

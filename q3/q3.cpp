@@ -4,7 +4,7 @@
 
 typedef long double (*PoissonFunc)(int, int);
 
-int main33() {
+int main() {
     void *lib_handle = dlopen("./libpoisson.so", RTLD_LAZY);
     if (!lib_handle) {
         std::cerr << "Error: Cannot load dynamic library." << std::endl;

@@ -17,7 +17,7 @@ void readFromUnknownMemory() {
     std::cout << *ptr << std::endl; // Attempting to dereference a null pointer
 }
 
-int main1() {
+int main() {
     // Call each function to trigger different types of crashes
     //infiniteRecursion();    // Uncomment to trigger infinite recursion
     divideByZero();      // Uncomment to trigger divide by zero
