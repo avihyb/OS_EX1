@@ -21,4 +21,4 @@ libpoisson.so: $(LIB_OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ -fPIC
 
 clean:
-	rm -f $(OBJS) $(LIB_OBJS) $(TARGET) libpoisson.so *.gcda *.gcno *.gcov codecoverage
+	rm -f $(OBJS) $(LIB_OBJS) $(TARGET) libpoisson.so *.gcda *.gcno *.gcov codecoverage q5 add2PB
